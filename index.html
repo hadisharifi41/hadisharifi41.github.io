@@ -3,157 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | AI Product Owner & Executive Assistant</title>
-    <!-- Tailwind CSS for modern, clean styling -->
-    <script src="https://tailwindcss.com"></script>
+    <title>Executive Portfolio</title>
     <style>
+        /* Modern Minimalist Design System */
         @import url('https://googleapis.com');
-        body { font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-blue: #4f46e5;
+            --accent-green: #059669;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100-vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.03em;
+        }
+
+        .upwork-btn {
+            background-color: var(--text-main);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .upwork-btn:hover {
+            background-color: #334155;
+            transform: translateY(-1px);
+        }
+
+        main {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem 5rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .hero {
+            margin-bottom: 3.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 650px;
+        }
+
+        /* Interactive Navigation Tabs */
+        .tabs-container {
+            border-b: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding-bottom: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            bottom: -2px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            color: var(--text-main);
+            font-weight: 700;
+            border-bottom: 2px solid var(--text-main);
+        }
+
+        /* Dynamic Panel Visibility */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Layouts */
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-tech { color: var(--accent-blue); }
+        .tag-exec { color: var(--accent-green); }
+
+        .role-highlight {
+            border-left: 3px solid var(--text-main);
+            padding-left: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .role-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .role-highlight p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card .subtitle {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- Header / Navigation -->
-    <header class="max-w-4xl w-full mx-auto px-6 py-8 flex justify-between items-center">
-        <div class="text-xl font-bold tracking-tight text-slate-900">Portfolio.</div>
-        <a href="https://www.upwork.com/freelancers/abdulhadisharifi" id="upwork-btn" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition-all">
-            Hire on Upwork
-        </a>
+    <header>
+        <div class="logo">Executive Portfolio.</div>
+        <a href="https://www.upwork.com/freelancers/abdulhadisharifi" class="upwork-btn">Hire on Upwork</a>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-4xl w-full mx-auto px-6 flex-grow py-12">
-        
-        <!-- Hero Section -->
-        <section class="mb-16">
-            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-4">
-                I turn complex challenges into automated results.
-            </h1>
-            <p class="text-lg text-slate-600 max-w-2xl font-light leading-relaxed">
-                10+ years operating at the intersection of business strategy and technical execution. Equal parts <strong>Agentic AI Product Owner</strong> and <strong>Strategic Executive Assistant</strong>. 
-            </p>
+    <main>
+        <!-- Hero Summary Section -->
+        <section class="hero">
+            <h1>I turn complex challenges into automated results.</h1>
+            <p>10+ years operating at the intersection of business strategy and technical execution. Equal parts <strong>Agentic AI Product Owner</strong> and <strong>Strategic Executive Assistant</strong>.</p>
         </section>
 
-        <!-- Interactive View Switcher Tabs -->
-        <section class="mb-12">
-            <div class="flex border-b border-slate-200 gap-6">
-                <button onclick="switchTab('tech')" id="tab-tech" class="tab-btn pb-3 text-sm font-semibold border-b-2 border-slate-900 text-slate-900 transition-all">
-                    AI & Product Leadership
-                </button>
-                <button onclick="switchTab('exec')" id="tab-exec" class="tab-btn pb-3 text-sm font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-all">
-                    Executive Partnership
-                </button>
-            </div>
-        </section>
+        <!-- Interactive Tabs Control -->
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="openTab(event, 'tech-panel')">AI & Product Leadership</button>
+            <button class="tab-btn" onclick="openTab(event, 'exec-panel')">Executive Partnership</button>
+        </div>
 
-        <!-- Dynamic Content Sections -->
-        <section class="min-h-[350px]">
-            
-            <!-- TAB 1: TECH & PRODUCT -->
-            <div id="content-tech" class="tab-content block space-y-10 animate-fade-in">
-                <!-- Current Role -->
-                <div class="border-l-2 border-slate-900 pl-4 space-y-2">
-                    <div class="text-xs font-bold tracking-wide uppercase text-indigo-600">Current Focus</div>
-                    <h3 class="text-xl font-bold text-slate-900">Agentic AI Product Owner — Infosys</h3>
-                    <p class="text-slate-600 text-sm max-w-2xl">
-                        Architecting autonomous AI agents to solve complex corporate workflows and drive enterprise efficiency.
-                    </p>
-                </div>
-
-                <!-- Past Enterprise History -->
-                <div class="space-y-4">
-                    <h4 class="text-xs font-bold tracking-wide uppercase text-slate-400">Enterprise Transformation History</h4>
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <!-- Card 1 -->
-                        <div class="p-5 bg-white border border-slate-200 rounded-xl hover:shadow-sm transition-all">
-                            <h5 class="font-semibold text-slate-900 mb-1">Defense Digital Transformation</h5>
-                            <p class="text-xs text-slate-500 mb-3">Project Manager / PO</p>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                Led IT professionals to customize software/hardware platforms. Managed IT consulting, requirements workshops, user stories, and System Integration Testing (SIT).
-                            </p>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="p-5 bg-white border border-slate-200 rounded-xl hover:shadow-sm transition-all">
-                            <h5 class="font-semibold text-slate-900 mb-1">Platform Modernization & FinTech</h5>
-                            <p class="text-xs text-slate-500 mb-3">Scrum Master / BA / PO — Infosys</p>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                Managed migration of legacy systems to modern cloud analytics tools. Balanced Scrum workflows with deep business analysis for strict regulatory compliance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <!-- TAB CONTENT 1: AI/TECH -->
+        <div id="tech-panel" class="tab-panel active">
+            <div class="role-highlight">
+                <div class="section-tag tag-tech">Current Focus</div>
+                <h3>Agentic AI Product Owner — Infosys</h3>
+                <p>Architecting autonomous AI agents to solve complex corporate workflows and drive enterprise efficiency.</p>
             </div>
 
-            <!-- TAB 2: EXECUTIVE PARTNERSHIP -->
-            <div id="content-exec" class="tab-content hidden space-y-10 animate-fade-in">
-                <!-- Executive Context -->
-                <div class="border-l-2 border-slate-900 pl-4 space-y-2">
-                    <div class="text-xs font-bold tracking-wide uppercase text-emerald-600">Entrepreneurial Foundation</div>
-                    <h3 class="text-xl font-bold text-slate-900">Business Owner & Executive Assistant Partner</h3>
-                    <p class="text-slate-600 text-sm max-w-2xl">
-                        Having founded and scaled multiple businesses—including a successful travel agency—I don't just manage tasks. I understand P&L statements, operational overhead, and true high-level executive needs.
-                    </p>
+            <div style="margin-bottom: 1rem;"><strong style="font-size: 0.75rem; uppercase; color: #94a3b8; letter-spacing: 0.05em;">Enterprise Transformation History</strong></div>
+            <div class="grid">
+                <div class="card">
+                    <h5>Defense Digital Transformation</h5>
+                    <div class="subtitle">Project Manager / PO</div>
+                    <p>Led IT professionals to customize software/hardware platforms. Managed IT consulting, requirements workshops, user stories, and System Integration Testing (SIT).</p>
                 </div>
-
-                <!-- Strategic Capabilities -->
-                <div class="space-y-4">
-                    <h4 class="text-xs font-bold tracking-wide uppercase text-slate-400">What I Bring to Your C-Suite</h4>
-                    <div class="grid gap-4 sm:grid-cols-3">
-                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
-                            <div class="font-medium text-sm text-slate-900 mb-1">Operations & P&L</div>
-                            <p class="text-xs text-slate-500">Commercial focus ensuring operations cleanly serve your bottom line profit goals.</p>
-                        </div>
-                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
-                            <div class="font-medium text-sm text-slate-900 mb-1">Travel Optimization</div>
-                            <p class="text-xs text-slate-500">Flawless, elite logistics leveraging firsthand agency ownership experience.</p>
-                        </div>
-                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
-                            <div class="font-medium text-sm text-slate-900 mb-1">Workflow Automation</div>
-                            <p class="text-xs text-slate-500">Integrating modern toolsets and AI to eliminate administrative friction.</p>
-                        </div>
-                    </div>
+                <div class="card">
+                    <h5>Platform Modernization & FinTech</h5>
+                    <div class="subtitle">Scrum Master / BA / PO — Infosys</div>
+                    <p>Managed migration of legacy systems to modern cloud analytics tools. Balanced Scrum workflows with deep business analysis for strict regulatory compliance.</p>
                 </div>
-            </div>
-
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="border-t border-slate-200 py-8 bg-white">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-            <div>&copy; 10+ Years Professional Portfolio. Hosted via GitHub Pages.</div>
-            <div class="flex gap-4">
-                <span class="font-medium text-slate-600">Core Expertise:</span>
-                <span>AI Agents</span>
-                <span>Product Ownership</span>
-                <span>Executive Operations</span>
             </div>
         </div>
-    </footer>
 
-    <!-- Tab Switching Logic Script -->
-    <script>
-        function switchTab(tabName) {
-            // Hide all contents
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('block'));
-            
-            // Reset all tab styling
-            document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.remove('border-slate-900', 'text-slate-900', 'font-semibold');
-                el.classList.add('border-transparent', 'text-slate-400', 'font-medium');
-            });
+        <!-- TAB CONTENT 2: EXECUTIVE ASSISTANT -->
+        <div id="exec-panel" class="tab-panel">
+            <div class="role-highlight">
+                <div class="section-tag tag-exec">Entrepreneurial Foundation</div>
+                <h3>Business Owner & Executive Assistant Partner</h3>
+                <p>Having founded and scaled multiple businesses—including a successful travel agency—I don't just manage tasks. I understand P&L statements, operational overhead, and true high-level executive needs.</p>
+            </div>
 
-            // Show current content & style current tab
-            const activeContent = document.getElementById(`content-${tabName}`);
-            const activeTab = document.getElementById(`tab-${tabName}`);
-            
-            activeContent.classList.remove('hidden');
-            activeContent.classList.add('block');
-            
-            activeTab.classList.remove('border-transparent', 'text-slate-400', 'font-medium');
-            activeTab.classList.add('border-slate-900', 'text-slate-900', 'font-semibold');
-        }
-    </script>
-</body>
-</html>
+            <div style="margin-bottom: 1rem;"><strong style="font-size: 0.75rem; uppercase; color: #94a3b8; letter-spacing: 0.05em;">What I Bring to Your C-Suite</strong></div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h5 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Operations & P&L</h5>
+                    <p>Commercial focus ensuring operations cleanly serve your bottom line profit goals.</p>
+                </div>
+                <div class="card">
+                    <h5 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Travel Optimization</h5>
+                    <p>Flawless, elite logistics leveraging firsthand agency ownership experience.</p>
+                </div>
+                <div class="card">
+                    <h5 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Workflow Automation</h5>
