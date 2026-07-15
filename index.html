@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | AI Product Owner & Executive Assistant</title>
+    <!-- Tailwind CSS for modern, clean styling -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation -->
+    <header class="max-w-4xl w-full mx-auto px-6 py-8 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-tight text-slate-900">Portfolio.</div>
+        <a href="https://www.upwork.com/freelancers/abdulhadisharifi" id="upwork-btn" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition-all">
+            Hire on Upwork
+        </a>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl w-full mx-auto px-6 flex-grow py-12">
+        
+        <!-- Hero Section -->
+        <section class="mb-16">
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-4">
+                I turn complex challenges into automated results.
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl font-light leading-relaxed">
+                10+ years operating at the intersection of business strategy and technical execution. Equal parts <strong>Agentic AI Product Owner</strong> and <strong>Strategic Executive Assistant</strong>. 
+            </p>
+        </section>
+
+        <!-- Interactive View Switcher Tabs -->
+        <section class="mb-12">
+            <div class="flex border-b border-slate-200 gap-6">
+                <button onclick="switchTab('tech')" id="tab-tech" class="tab-btn pb-3 text-sm font-semibold border-b-2 border-slate-900 text-slate-900 transition-all">
+                    AI & Product Leadership
+                </button>
+                <button onclick="switchTab('exec')" id="tab-exec" class="tab-btn pb-3 text-sm font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-all">
+                    Executive Partnership
+                </button>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Sections -->
+        <section class="min-h-[350px]">
+            
+            <!-- TAB 1: TECH & PRODUCT -->
+            <div id="content-tech" class="tab-content block space-y-10 animate-fade-in">
+                <!-- Current Role -->
+                <div class="border-l-2 border-slate-900 pl-4 space-y-2">
+                    <div class="text-xs font-bold tracking-wide uppercase text-indigo-600">Current Focus</div>
+                    <h3 class="text-xl font-bold text-slate-900">Agentic AI Product Owner — Infosys</h3>
+                    <p class="text-slate-600 text-sm max-w-2xl">
+                        Architecting autonomous AI agents to solve complex corporate workflows and drive enterprise efficiency.
+                    </p>
+                </div>
+
+                <!-- Past Enterprise History -->
+                <div class="space-y-4">
+                    <h4 class="text-xs font-bold tracking-wide uppercase text-slate-400">Enterprise Transformation History</h4>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <!-- Card 1 -->
+                        <div class="p-5 bg-white border border-slate-200 rounded-xl hover:shadow-sm transition-all">
+                            <h5 class="font-semibold text-slate-900 mb-1">Defense Digital Transformation</h5>
+                            <p class="text-xs text-slate-500 mb-3">Project Manager / PO</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Led IT professionals to customize software/hardware platforms. Managed IT consulting, requirements workshops, user stories, and System Integration Testing (SIT).
+                            </p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="p-5 bg-white border border-slate-200 rounded-xl hover:shadow-sm transition-all">
+                            <h5 class="font-semibold text-slate-900 mb-1">Platform Modernization & FinTech</h5>
+                            <p class="text-xs text-slate-500 mb-3">Scrum Master / BA / PO — Infosys</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Managed migration of legacy systems to modern cloud analytics tools. Balanced Scrum workflows with deep business analysis for strict regulatory compliance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: EXECUTIVE PARTNERSHIP -->
+            <div id="content-exec" class="tab-content hidden space-y-10 animate-fade-in">
+                <!-- Executive Context -->
+                <div class="border-l-2 border-slate-900 pl-4 space-y-2">
+                    <div class="text-xs font-bold tracking-wide uppercase text-emerald-600">Entrepreneurial Foundation</div>
+                    <h3 class="text-xl font-bold text-slate-900">Business Owner & Executive Assistant Partner</h3>
+                    <p class="text-slate-600 text-sm max-w-2xl">
+                        Having founded and scaled multiple businesses—including a successful travel agency—I don't just manage tasks. I understand P&L statements, operational overhead, and true high-level executive needs.
+                    </p>
+                </div>
+
+                <!-- Strategic Capabilities -->
+                <div class="space-y-4">
+                    <h4 class="text-xs font-bold tracking-wide uppercase text-slate-400">What I Bring to Your C-Suite</h4>
+                    <div class="grid gap-4 sm:grid-cols-3">
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div class="font-medium text-sm text-slate-900 mb-1">Operations & P&L</div>
+                            <p class="text-xs text-slate-500">Commercial focus ensuring operations cleanly serve your bottom line profit goals.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div class="font-medium text-sm text-slate-900 mb-1">Travel Optimization</div>
+                            <p class="text-xs text-slate-500">Flawless, elite logistics leveraging firsthand agency ownership experience.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-xl">
+                            <div class="font-medium text-sm text-slate-900 mb-1">Workflow Automation</div>
+                            <p class="text-xs text-slate-500">Integrating modern toolsets and AI to eliminate administrative friction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-200 py-8 bg-white">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <div>&copy; 10+ Years Professional Portfolio. Hosted via GitHub Pages.</div>
+            <div class="flex gap-4">
+                <span class="font-medium text-slate-600">Core Expertise:</span>
+                <span>AI Agents</span>
+                <span>Product Ownership</span>
+                <span>Executive Operations</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tab Switching Logic Script -->
+    <script>
+        function switchTab(tabName) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('block'));
+            
+            // Reset all tab styling
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('border-slate-900', 'text-slate-900', 'font-semibold');
+                el.classList.add('border-transparent', 'text-slate-400', 'font-medium');
+            });
+
+            // Show current content & style current tab
+            const activeContent = document.getElementById(`content-${tabName}`);
+            const activeTab = document.getElementById(`tab-${tabName}`);
+            
+            activeContent.classList.remove('hidden');
+            activeContent.classList.add('block');
+            
+            activeTab.classList.remove('border-transparent', 'text-slate-400', 'font-medium');
+            activeTab.classList.add('border-slate-900', 'text-slate-900', 'font-semibold');
+        }
+    </script>
+</body>
+</html>
